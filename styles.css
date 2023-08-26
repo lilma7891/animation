@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.small-text {
+  font-size: 24px;
+}
+.big-text {
+  font-size: 54px;
+  line-height: 50px;
+  width: 100%;
+  color: #fff;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100dvh;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 40px;
+  width: 100dvw;
+  height: 150dvh;
+  background-color: #204ffe;
+  box-shadow: inset 0px 0px 450px 120px rgba(0, 0, 0, 1);
+  opacity: 0.35;
+  z-index: 1;
+
+  animation: slideUpAnimation 4s forwards;
+}
+
+@keyframes slideUpAnimation {
+  from {
+    top: 150%;
+  }
+  to {
+    top: 95%;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-transform: uppercase;
+  width: 100%;
+  animation: fadeInAnimation 6s forwards;
+  z-index: 10;
+}
+.content::after {
+  content: '';
+  border: 2px solid #204ffe;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 70dvw;
+  height: 90dvh;
+}
+
+.ellipse,
+.ellipse2,
+.ellipse2::before,
+.ellipse2::after,
+.ellipse::before,
+.ellipse::after {
+  position: absolute;
+  content: '';
+  border: 2px solid #204ffe;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.ellipse::before,
+.ellipse::after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ellipse2::before,
+.ellipse2::after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ellipse,
+.ellipse2 {
+  animation: expandAnimation 6s forwards;
+}
+
+.ellipse2::before {
+  width: 50dvw;
+  height: 50dvh;
+}
+
+.ellipse2 {
+  width: 35dvw;
+  height: 35dvh;
+}
+
+.ellipse2::after {
+  width: 200px;
+  height: 30dvh;
+}
+
+.ellipse::after {
+  width: 65dvw;
+  height: 65dvh;
+}
+
+.ellipse {
+  width: 80dvw;
+  height: 80dvh;
+}
+
+.ellipse::before {
+  width: 95dvw;
+  height: 95dvh;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes expandAnimation {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(12);
+  }
+  100% {
+    transform: scale(50);
+  }
+}
